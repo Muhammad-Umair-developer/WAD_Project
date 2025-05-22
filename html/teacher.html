@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teacher Dashboard with Quiz Criteria</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white shadow h-screen p-6 space-y-6">
+    <h2 class="text-2xl font-bold text-green-700">Teacher Panel</h2>
+    <nav class="space-y-3">
+      <button class="block w-full text-left text-gray-700 hover:text-green-500" onclick="showSection('courses')">Courses</button>
+      <button class="block w-full text-left text-gray-700 hover:text-green-500" onclick="showSection('quizzes')">Quizzes</button>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-8 space-y-10">
+
+    <!-- Courses Section -->
+    <section id="coursesSection">
+      <h2 class="text-xl font-semibold mb-4">Manage Courses</h2>
+
+      <!-- Add Course Form -->
+      <div class="bg-white p-6 rounded shadow mb-6">
+        <h3 class="font-medium text-lg mb-3">Add New Course</h3>
+        <form id="courseForm" class="space-y-4">
+          <input type="text" id="courseTitle" placeholder="Course Title" class="w-full border p-2 rounded" required />
+          <input type="text" id="courseDescription" placeholder="Course Description" class="w-full border p-2 rounded" required />
+          <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Add Course</button>
+        </form>
+      </div>
+
+      <!-- Courses List -->
+      <div>
+        <h3 class="font-medium text-lg mb-2">Your Courses</h3>
+        <ul id="courseList" class="space-y-4"></ul>
+      </div>
+    </section>
+
+    <!-- Quizzes Section -->
+    <section id="quizzesSection" class="hidden">
+      <h2 class="text-xl font-semibold mb-4">Manage Quizzes</h2>
+
+      <!-- Add Quiz Form -->
+      <div class="bg-white p-6 rounded shadow mb-6">
+        <h3 class="font-medium text-lg mb-3">Create Quiz</h3>
+        <form id="quizForm" class="space-y-4">
+          <input type="text" id="quizTitle" placeholder="Quiz Title" class="w-full border p-2 rounded" required />
+          <select id="quizCriteria" class="w-full border p-2 rounded" required>
+            <option value="" disabled selected>Select Quiz Criteria</option>
+            <option value="mid-course">Mid-course (50% progress)</option>
+            <option value="final">Final (Course Completion)</option>
+          </select>
+          <button type="submit" class="bg-green-400 text-white px-4 py-2 rounded">Add Quiz</button>
+        </form>
+      </div>
+
+      <!-- Quiz List -->
+      <div>
+        <h3 class="font-medium text-lg mb-2">Your Quizzes</h3>
+        <ul id="quizList" class="space-y-4"></ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JS Logic -->
+  <script>
+    // Section toggle
+    function showSection(section) {
+      document.getElementById('coursesSection').classList.toggle('hidden', section !== 'courses');
+      document.getElementById('quizzesSection').classList.toggle('hidden', section !== 'quizzes');
+    }
+
+    // Course CRUD
+    const courseForm = document.getElementById('courseForm');
+    const courseList = document.getElementById('courseList');
+    let courses = [];
+
+    courseForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const title = document.getElementById('courseTitle').value;
+      const description = document.getElementById('courseDescription').value;
+      courses.push({ title, description });
+      renderCourses();
+      courseForm.reset();
+    });
+
+    function renderCourses() {
+      courseList.innerHTML = '';
+      courses.forEach((course, index) => {
+        courseList.innerHTML += `
+          <li class="bg-white p-4 shadow rounded flex justify-between items-center">
+            <div>
+              <h4 class="font-semibold">${course.title}</h4>
+              <p class="text-sm text-gray-600">${course.description}</p>
+            </div>
+            <div class="space-x-2">
+              <button onclick="editCourse(${index})" class="text-blue-500">Edit</button>
+              <button onclick="deleteCourse(${index})" class="text-red-500">Delete</button>
+            </div>
+          </li>
+        `;
+      });
+    }
+
+    function editCourse(index) {
+      const course = courses[index];
+      document.getElementById('courseTitle').value = course.title;
+      document.getElementById('courseDescription').value = course.description;
+      courses.splice(index, 1); // remove from list temporarily
+      renderCourses();
+    }
+
+    function deleteCourse(index) {
+      courses.splice(index, 1);
+      renderCourses();
+    }
+
+    // Quiz CRUD with criteria
+    const quizForm = document.getElementById('quizForm');
+    const quizList = document.getElementById('quizList');
+    let quizzes = [];
+
+    quizForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const title = document.getElementById('quizTitle').value;
+      const criteria = document.getElementById('quizCriteria').value;
+      quizzes.push({ title, criteria });
+      renderQuizzes();
+      quizForm.reset();
+    });
+
+    function renderQuizzes() {
+      quizList.innerHTML = '';
+      quizzes.forEach((quiz, index) => {
+        let criteriaText = '';
+        if (quiz.criteria === 'mid-course') criteriaText = 'Mid-course (50% progress)';
+        else if (quiz.criteria === 'final') criteriaText = 'Final (Course Completion)';
+        quizList.innerHTML += `
+          <li class="bg-white p-4 shadow rounded flex justify-between items-center">
+            <div>
+              <span class="font-semibold">${quiz.title}</span><br/>
+              <small class="text-gray-600 italic">${criteriaText}</small>
+            </div>
+            <button onclick="deleteQuiz(${index})" class="text-red-500">Delete</button>
+          </li>
+        `;
+      });
+    }
+
+    function deleteQuiz(index) {
+      quizzes.splice(index, 1);
+      renderQuizzes();
+    }
+  </script>
+</body>
+</html>
