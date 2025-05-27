@@ -1,241 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <title>Courses</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .aspect-16-9 {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+    }
+    .aspect-16-9 iframe {
+      position: absolute;
+      top:0; left:0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.75rem;
+      border: none;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-100 text-gray-800 font-sans min-h-screen flex flex-col">
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow-md border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-green-700 hover:text-green-800">Courses</a>
+      <ul class="flex space-x-6 text-gray-600 font-medium">
+        <li><a href="index.html" class="hover:text-green-600 transition">Home</a></li>
+        <li><a href="courses.html" class="hover:text-green-600 transition">Courses</a></li>
+        <li><a href="about.html" class="hover:text-green-600 transition">About</a></li>
+        <li><a href="contact.html" class="hover:text-green-600 transition">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <!-- Header -->
-  <header class="p-6 bg-blue-600 text-white text-center text-3xl font-bold shadow">
-    Course Catalog
+  <header class="bg-gradient-to-r from-green-700 to-green-600 text-white py-12 text-center shadow-md">
+    <h1 class="text-4xl font-extrabold tracking-tight">Course Catalog</h1>
+    <p class="mt-2 text-lg font-light max-w-xl mx-auto">Explore our wide range of professional courses and start learning today.</p>
   </header>
 
-  <main class="p-8 space-y-8 max-w-4xl mx-auto font-sans">
-    <!-- Web Development Course -->
-    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
-      <h2 class="text-2xl font-semibold mb-4 flex items-center space-x-2">
-        <!-- Code Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
-        </svg>
-        <span>Web Development</span>
-      </h2>
-      <button onclick="toggleLessons('web-dev-lessons', this)" 
-        class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium transition">
-        Show Lessons
-      </button>
-  
-      <!-- Lesson List -->
-      <div id="web-dev-lessons" class="mt-4 space-y-3 hidden">
-        <button onclick="loadVideo('https://www.youtube.com/embed/?v=tVzUXW6siu0&list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w')" 
-          class="text-blue-700 hover:text-blue-900 hover:underline flex items-center space-x-2 font-semibold">
-          <!-- Play Icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
-          </svg>
-          <span>Lesson 1: HTML Basics</span>
-        </button>
-  
-        <button onclick="loadVideo('https://www.youtube.com/embed/watch?v=kJEsTjH5mVg&list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w&index=14')" 
-          class="text-blue-700 hover:text-blue-900 hover:underline flex items-center space-x-2 font-semibold">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
-          </svg>
-          <span>Lesson 2: CSS Fundamentals</span>
-        </button>
-  
-        <button onclick="loadVideo('https://www.youtube.com/embed/watch?v=NrhP53Divco&list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w&index=54')" 
-          class="text-blue-700 hover:text-blue-900 hover:underline flex items-center space-x-2 font-semibold">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
-          </svg>
-          <span>Lesson 3: JavaScript Basics</span>
-        </button>
-      </div>
-    </div>
-  
-    <!-- Programming Fundamentals Course -->
-    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
-      <h2 class="text-2xl font-semibold mb-4 flex items-center space-x-2">
-        <!-- Code Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8 16h8M8 12h8m-6 8h2M8 4h8m-6 4h2" />
-        </svg>
-        <span>Programming Fundamentals</span>
-      </h2>
-      <button onclick="toggleLessons('programming-lessons', this)" 
-        class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium transition">
-        Show Lessons
-      </button>
-  
-      <div id="programming-lessons" class="mt-4 space-y-3 hidden">
-        <button onclick="loadVideo('https://www.youtube.com/embed/watch?v=z9bZufPHFLU&list=PLfqMhTWNBTe0b2nM6JHVCnAkhQRGiZMSJ')" 
-          class="text-purple-700 hover:text-purple-900 hover:underline flex items-center space-x-2 font-semibold">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
-          </svg>
-          <span>Lesson 1: What is Programming?</span>
-        </button>
-  
-        <button onclick="loadVideo('https://www.youtube.com/embed/yOyaJXpAYZQ')" 
-          class="text-purple-700 hover:text-purple-900 hover:underline flex items-center space-x-2 font-semibold">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
-          </svg>
-          <span>Lesson 2: Variables and Types</span>
-        </button>
-  
-        <button onclick="loadVideo('https://www.youtube.com/embed/8PopR3x-VMY')" 
-          class="text-purple-700 hover:text-purple-900 hover:underline flex items-center space-x-2 font-semibold">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
-          </svg>
-          <span>Lesson 3: Control Structures</span>
-        </button>
-      </div>
-    </div>
-  
-    <!-- AI Course -->
-    <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
-      <h2 class="text-2xl font-semibold mb-4 flex items-center space-x-2">
-        <!-- AI Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6M12 9v6m9 3v-1a4 4 0 00-3-3.87M3 9v6a4 4 0 013-3.87M9 21v-3a3 3 0 013-3m0 0v-3a3 3 0 00-3-3" />
-        </svg>
-        <span>Artificial Intelligence</span>
-      </h2>
-      <button onclick="toggleLessons('ai-lessons', this)" 
-        class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium transition">
-        Show Lessons
-      </button>
-  
-      <div id="ai-lessons" class="mt-4 space-y-3 hidden">
-        <button onclick="loadVideo('https://www.youtube.com/embed/F1LktIJKjAg')" 
-        class="text-red-700 hover:text-red-900 hover:underline flex items-center space-x-2 font-semibold">
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
-  </svg>
-  <span>Lesson 1: What is AI?</span>
-</button>
+  <main class="max-w-5xl mx-auto p-8 flex-grow space-y-10">
 
-  
-        <button onclick="loadVideo('https://www.youtube.com/embed/5NgNicANyqM')" 
-          class="text-red-700 hover:text-red-900 hover:underline flex items-center space-x-2 font-semibold">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
-          </svg>
-          <span>Lesson 2: Machine Learning Intro</span>
-        </button>
-  
-        <button onclick="loadVideo('https://www.youtube.com/embed/EYeF2e2IKEo')" 
-          class="text-red-700 hover:text-red-900 hover:underline flex items-center space-x-2 font-semibold">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
-          </svg>
-          <span>Lesson 3: Neural Networks</span>
-        </button>
-      </div>
-    </div>
+    <!-- Change to column-wise layout -->
+    <section class="grid grid-cols-1 md:grid-cols-1 gap-10">
+
+      <!-- Web Development Course -->
+      <article
+        class="bg-white rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+        <div class="p-6 flex-grow flex flex-col">
+          <h2 class="flex items-center text-2xl font-semibold mb-5 space-x-3 text-green-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
+            </svg>
+            <span>Web Development</span>
+          </h2>
+          <button
+            onclick="toggleLessons('web-dev-lessons', this)"
+            class="mt-auto bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold px-6 py-3 rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1 transition">
+            Show Lessons
+          </button>
+
+          <!-- Lesson List -->
+          <div id="web-dev-lessons" class="mt-6 space-y-4 hidden border-t border-gray-200 pt-6">
+            <button onclick="loadVideo('https://www.youtube.com/embed/?v=tVzUXW6siu0&list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w')"
+              class="flex items-center space-x-3 text-green-700 hover:text-green-900 font-semibold border rounded-lg px-4 py-2 hover:bg-green-50 transition focus:outline-none focus:ring-2 focus:ring-green-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
+              </svg>
+              <span>Lesson 1: HTML Basics</span>
+            </button>
+
+            <button onclick="loadVideo('https://www.youtube.com/embed/watch?v=kJEsTjH5mVg&list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w&index=14')"
+              class="flex items-center space-x-3 text-green-700 hover:text-green-900 font-semibold border rounded-lg px-4 py-2 hover:bg-green-50 transition focus:outline-none focus:ring-2 focus:ring-green-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
+              </svg>
+              <span>Lesson 2: CSS Fundamentals</span>
+            </button>
+
+            <button onclick="loadVideo('https://www.youtube.com/embed/watch?v=NrhP53Divco&list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w&index=54')"
+              class="flex items-center space-x-3 text-green-700 hover:text-green-900 font-semibold border rounded-lg px-4 py-2 hover:bg-green-50 transition focus:outline-none focus:ring-2 focus:ring-green-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
+              </svg>
+              <span>Lesson 3: JavaScript Basics</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Programming Fundamentals Course -->
+      <article
+        class="bg-white rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+        <div class="p-6 flex-grow flex flex-col">
+          <h2 class="flex items-center text-2xl font-semibold mb-5 space-x-3 text-green-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 16h8M8 12h8m-6 8h2M8 4h8m-6 4h2" />
+            </svg>
+            <span>Programming Fundamentals</span>
+          </h2>
+          <button
+            onclick="toggleLessons('programming-lessons', this)"
+            class="mt-auto bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold px-6 py-3 rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1 transition">
+            Show Lessons
+          </button>
+
+          <div id="programming-lessons" class="mt-6 space-y-4 hidden border-t border-gray-200 pt-6">
+            <button onclick="loadVideo('https://www.youtube.com/embed/watch?v=z9bZufPHFLU&list=PLfqMhTWNBTe0b2nM6JHVCnAkhQRGiZMSJ')"
+              class="flex items-center space-x-3 text-green-700 hover:text-green-900 font-semibold border rounded-lg px-4 py-2 hover:bg-green-50 transition focus:outline-none focus:ring-2 focus:ring-green-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
+              </svg>
+              <span>Lesson 1: What is Programming?</span>
+            </button>
+
+            <button onclick="loadVideo('https://www.youtube.com/embed/yOyaJXpAYZQ')"
+              class="flex items-center space-x-3 text-green-700 hover:text-green-900 font-semibold border rounded-lg px-4 py-2 hover:bg-green-50 transition focus:outline-none focus:ring-2 focus:ring-green-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
+              </svg>
+              <span>Lesson 2: Variables and Data Types</span>
+            </button>
+
+            <button onclick="loadVideo('https://www.youtube.com/embed/FsQOWnPe6qY')"
+              class="flex items-center space-x-3 text-green-700 hover:text-green-900 font-semibold border rounded-lg px-4 py-2 hover:bg-green-50 transition focus:outline-none focus:ring-2 focus:ring-green-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
+              </svg>
+              <span>Lesson 3: Control Structures</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- AI Course -->
+      <article
+        class="bg-white rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+        <div class="p-6 flex-grow flex flex-col">
+          <h2 class="flex items-center text-2xl font-semibold mb-5 space-x-3 text-green-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L15 12 9.75 7v10z" />
+            </svg>
+            <span>Artificial Intelligence</span>
+          </h2>
+          <button
+            onclick="toggleLessons('ai-lessons', this)"
+            class="mt-auto bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold px-6 py-3 rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1 transition">
+            Show Lessons
+          </button>
+
+          <div id="ai-lessons" class="mt-6 space-y-4 hidden border-t border-gray-200 pt-6">
+            <button onclick="loadVideo('https://www.youtube.com/embed/tVzUXW6siu0')"
+              class="flex items-center space-x-3 text-green-700 hover:text-green-900 font-semibold border rounded-lg px-4 py-2 hover:bg-green-50 transition focus:outline-none focus:ring-2 focus:ring-green-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
+              </svg>
+              <span>Lesson 1: Introduction to AI</span>
+            </button>
+
+            <button onclick="loadVideo('https://www.youtube.com/embed/_JhF2XeyFz4')"
+              class="flex items-center space-x-3 text-green-700 hover:text-green-900 font-semibold border rounded-lg px-4 py-2 hover:bg-green-50 transition focus:outline-none focus:ring-2 focus:ring-green-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
+              </svg>
+              <span>Lesson 2: Machine Learning Basics</span>
+            </button>
+
+            <button onclick="loadVideo('https://www.youtube.com/embed/ukzFI9rgwfU')"
+              class="flex items-center space-x-3 text-green-700 hover:text-green-900 font-semibold border rounded-lg px-4 py-2 hover:bg-green-50 transition focus:outline-none focus:ring-2 focus:ring-green-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-6.518-3.75v7.5l6.518-3.75z" />
+              </svg>
+              <span>Lesson 3: Neural Networks</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    
+    
+
   </main>
-  
-  <!-- Video Player -->
-  <section class="p-8 max-w-4xl mx-auto mt-6">
-    <div class="bg-white shadow-md rounded-2xl p-6">
-      <h3 class="text-xl font-semibold mb-3">Lesson Video</h3>
-      <div class="aspect-w-16 aspect-h-9">
-        <iframe id="video-player" class="w-full h-[400px] rounded-xl" src="" frameborder="0" allowfullscreen></iframe>
-      </div>
+  <!-- Video Player Section -->
+  <section id="video-player-section" class ="bg-white rounded-2xl shadow-lg p-8 w-[65%] mx-auto my-16">
+    <h2 class="text-3xl font-bold mb-6 text-center text-green-700">Course Video Player</h2>
+    <div class="aspect-16-9 rounded-xl overflow-hidden shadow-lg">
+      <iframe
+        id="videoPlayer"
+        src="https://www.youtube.com/embed/tVzUXW6siu0?list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w"
+        allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        title="YouTube video player"
+      ></iframe>
     </div>
   </section>
 
-  <!-- JavaScript to Handle Logic -->
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-200 mt-auto py-6 text-center text-gray-500 text-sm">
+    &copy; 2025 MyCourses. All rights reserved.
+  </footer>
+
   <script>
-     function toggleLessons(id, btn) {
-    const lessons = document.getElementById(id);
-    if (!lessons) return;
-
-    if (lessons.classList.contains('hidden')) {
-      lessons.classList.remove('hidden');
-      btn.textContent = 'Hide Lessons';
-    } else {
-      lessons.classList.add('hidden');
-      btn.textContent = 'Show Lessons';
-    }
-  }
-
-  function loadVideo(url) {
-    const player = document.getElementById('video-player');
-    if (player) {
-      player.src = url;
-      // Scroll to video player smoothly
-      player.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-    // Read course from URL query param
-    const params = new URLSearchParams(window.location.search);
-    const course = params.get('course');
-
-    // Data for all courses
-    const courseData = {
-      'web-development': {
-        title: 'Web Development',
-        description: 'Learn to build modern websites with HTML, CSS, JavaScript, backend with PHP and Node.js.',
-        image: '../images/web.jpg',
-        syllabus: [
-          'HTML Basics',
-          'CSS Styling',
-          'JavaScript Fundamentals',
-          'Backend with PHP',
-          'Node.js Introduction'
-        ]
-      },
-      'programming-fundamentals': {
-        title: 'Programming Fundamentals',
-        description: 'Understand core programming concepts using C, Python, and Java.',
-        image: '../images/programming.jpg',
-        syllabus: [
-          'Variables & Data Types',
-          'Control Structures',
-          'Functions',
-          'OOP Basics',
-          'Debugging & Testing'
-        ]
-      },
-      'artificial-intelligence': {
-        title: 'Artificial Intelligence',
-        description: 'Get started with AI, machine learning, and neural networks.',
-        image: '../images/ai.jpg',
-        syllabus: [
-          'Introduction to AI',
-          'Machine Learning Basics',
-          'Neural Networks',
-          'Deep Learning',
-          'AI Applications'
-        ]
+    function toggleLessons(id, btn) {
+      const lessonDiv = document.getElementById(id);
+      if (lessonDiv.classList.contains('hidden')) {
+        lessonDiv.classList.remove('hidden');
+        btn.textContent = 'Hide Lessons';
+      } else {
+        lessonDiv.classList.add('hidden');
+        btn.textContent = 'Show Lessons';
       }
-    };
-
-    // Container where we put course info
-    const container = document.getElementById('course-container');
-
-    if (courseData[course]) {
-      const data = courseData[course];
-      container.innerHTML = `
-        <h1 class="text-4xl font-bold mb-6">${data.title}</h1>
-        <img src="${data.image}" alt="${data.title}" class="w-full h-64 object-cover rounded mb-6" />
-        <p class="text-gray-700 mb-8">${data.description}</p>
-        <h2 class="text-2xl font-semibold mb-4">Syllabus</h2>
-        <ul class="list-disc list-inside space-y-2">
-          ${data.syllabus.map(item => `<li>${item}</li>`).join('')}
-        </ul>
-      `;
-    } else {
-      container.innerHTML = `
-        <p class="text-red-500 text-xl font-semibold text-center">Sorry, course not found.</p>
-      `;
     }
+
+    function loadVideo(url) {
+  const iframe = document.getElementById('videoPlayer');
+  iframe.src = url;
+  document.getElementById('video-player-section').scrollIntoView({ behavior: 'smooth' });
+}
+
   </script>
+
 </body>
 </html>

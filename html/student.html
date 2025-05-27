@@ -3,127 +3,139 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Student Dashboard</title>
-  <link rel="stylesheet" href="../src/output.css" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body class="bg-gray-100 text-gray-800">
-
-  <!-- Navbar -->
-  <header class="bg-white shadow p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold">Welcome, <span id="studentName" class="text-blue-600">Student</span></h1>
-    <nav>
-      <ul class="flex space-x-4 gap-3">
-        <li><a href="#" class="hover:text-blue-600">Dashboard</a></li>
-        <li><a href="#" class="hover:text-blue-600">Profile</a></li>
-        <li><a href="#" class="hover:text-blue-600">Logout</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="p-6 max-w-7xl mx-auto">
-    <!-- Enrolled Courses -->
-    <!-- Enrolled Courses -->
-<section class="mb-8">
-    <h2 class="text-2xl font-semibold mb-4">Enrolled Courses</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="bg-white p-4 rounded-xl shadow">
-        <h3 class="font-semibold text-lg mb-2">Web Development</h3>
-        <div class="w-full bg-gray-200 rounded-full h-3 mb-2">
-          <div class="bg-blue-600 h-3 rounded-full" style="width: 70%"></div>
-        </div>
-        <p class="text-sm mb-2">Progress: 70%</p>
-        <button onclick="toggleContent('course1')" 
-                class="text-sm bg-blue-500 text-white cursor-pointer px-3 py-1 rounded hover:bg-blue-600">
-          View Content
-        </button>
-        <div id="course1" class="mt-3 hidden text-gray-700">
-          <ul class="list-disc pl-5 space-y-1">
-            <li>HTML Basics</li>
-            <li>CSS Fundamentals</li>
-            <li>JavaScript Introduction</li>
-            <li>Responsive Design</li>
-          </ul>
-        </div>
-      </div>
-  
-      <div class="bg-white p-4 rounded-xl shadow">
-        <h3 class="font-semibold text-lg mb-2">Python Programming</h3>
-        <div class="w-full bg-gray-200 rounded-full h-3 mb-2">
-          <div class="bg-green-500 h-3 rounded-full" style="width: 40%"></div>
-        </div>
-        <p class="text-sm mb-2">Progress: 40%</p>
-        <button onclick="toggleContent('course2')" 
-                class="text-sm bg-blue-500 cursor-pointer text-white px-3 py-1 rounded hover:bg-blue-600">
-          View Content
-        </button>
-        <div id="course2" class="mt-3 hidden text-gray-700">
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Python Syntax and Variables</li>
-            <li>Control Flow and Loops</li>
-            <li>Functions and Modules</li>
-            <li>File Handling</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <script>
-    function toggleContent(courseId) {
-      const content = document.getElementById(courseId);
-      if (content.classList.contains('hidden')) {
-        content.classList.remove('hidden');
-      } else {
-        content.classList.add('hidden');
-      }
+  <title>Student Dashboard — Pro Style</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    ::-webkit-scrollbar {
+      width: 6px;
     }
-  </script>
-    <!-- Enrolled Courses End -->  
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(100, 116, 139, 0.6);
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="bg-green-50 font-sans text-gray-900">
 
-    <!-- Wishlist -->
-    <section class="mb-8">
-      <h2 class="text-2xl font-semibold mb-4">Wishlist</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="bg-white p-4 rounded-lg shadow flex justify-between items-center">
-          <span>UI/UX Design</span>
-          <button class="text-sm bg-blue-500 text-white px-3 py-1 rounded cursor-pointer hover:bg-blue-600">Enroll</button>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow flex justify-between items-center">
-          <span>Machine Learning</span>
-          <button class="text-sm bg-blue-500 text-white px-3 py-1 rounded cursor-pointer hover:bg-blue-600">Enroll</button>
-        </div>
+  <div class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="flex flex-col w-72 bg-gradient-to-b from-green-900 to-green-800 text-green-100 shadow-lg overflow-y-auto">
+      <div class="flex items-center h-20 px-6 font-bold text-2xl tracking-wide border-b border-green-700">
+        STUDENT DASH
       </div>
-    </section>
+      <nav class="flex-1 px-4 py-6 space-y-3">
+        <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-green-700 transition">
+          <i class="fas fa-home text-lg"></i>
+          <span class="font-semibold text-lg">Dashboard</span>
+        </a>
+        <a href="index.html" class="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-green-700 transition">
+          <i class="fas fa-home text-lg"></i>
+          <span class="font-semibold text-lg">Home </span>
+        </a>
+        <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-green-700 transition">
+          <i class="fas fa-user-circle text-lg"></i>
+          <span class="font-semibold text-lg">Profile</span>
+        </a>
+        <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-green-700 transition">
+          <i class="fas fa-sign-out-alt text-lg"></i>
+          <span class="font-semibold text-lg">Logout</span>
+        </a>
+      </nav>
+    </aside>
 
-    <!-- Playlist -->
-    <section>
-      <h2 class="text-2xl font-semibold mb-4">My Playlist</h2>
-      <div class="space-y-4">
-        <div class="bg-white p-4 rounded-lg shadow flex justify-between items-center">
-          <span>HTML Crash Course</span>
-          <div class="space-x-2">
-            <button class="bg-yellow-400 text-white px-3 py-1 rounded cursor-pointer hover:bg-yellow-500">Edit</button>
-            <button class="bg-red-500 text-white px-3 py-1 rounded cursor-pointer hover:bg-red-600">Delete</button>
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col overflow-auto">
+
+      <!-- Topbar -->
+      <header class="flex items-center justify-between bg-white shadow px-8 py-4 sticky top-0 z-30">
+        <div class="flex items-center gap-6">
+          <h1 class="text-3xl font-extrabold text-green-900 tracking-wide">Welcome, <span id="studentName" class="text-green-700"></span></h1>
+          <div class="relative">
+            <input type="text" placeholder="Search courses..." class="rounded-full border border-gray-300 px-4 py-2 pl-10 text-gray-700 focus:border-green-500 focus:ring-2 focus:ring-green-400 outline-none transition" />
+            <i class="fas fa-search absolute left-3 top-2.5 text-gray-400"></i>
           </div>
         </div>
-        <div class="bg-white p-4 rounded-lg shadow flex justify-between items-center">
-          <span>JavaScript Basics</span>
-          <div class="space-x-2">
-            <button class="bg-yellow-400 text-white px-3 py-1 rounded cursor-pointer hover:bg-yellow-500">Edit</button>
-            <button class="bg-red-500 text-white px-3 py-1 rounded cursor-pointer hover:bg-red-600">Delete</button>
-          </div>
+        <div class="flex items-center gap-6">
+          <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full font-semibold shadow focus:ring-4 focus:ring-green-400 transition">
+            Notifications <span class="ml-2 inline-block bg-red-600 text-white rounded-full px-2 text-xs font-bold">3</span>
+          </button>
+          <img src="https://i.pravatar.cc/40" alt="User Avatar" class="rounded-full border-2 border-green-600" />
         </div>
-      </div>
-    </section>
-  </main>
+      </header>
 
-  <!-- JavaScript to set student name -->
+      <!-- Content Grid -->
+      <main class="p-10 grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+        <!-- Enrolled Courses -->
+        <section class="lg:col-span-2 bg-white rounded-3xl shadow-2xl p-10 border border-green-100">
+          <h2 class="text-4xl font-extrabold text-green-900 mb-8 border-b-4 border-green-300 pb-3 tracking-wide">Enrolled Courses</h2>
+          <div class="space-y-12">
+            <!-- Course Card -->
+            <article class="group flex flex-col md:flex-row items-start md:items-center justify-between border border-green-200 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
+              <div class="flex-1 mb-6 md:mb-0">
+                <h3 class="text-2xl font-extrabold text-green-800 mb-4 group-hover:text-green-600 transition">Web Development</h3>
+                <div class="relative w-full bg-green-100 rounded-full h-6 mb-4 overflow-hidden shadow-inner">
+                  <div class="absolute top-0 left-0 h-6 bg-gradient-to-r from-green-600 via-green-500 to-green-400 rounded-full transition-all duration-700 ease-in-out" style="width: 70%;"></div>
+                </div>
+                <p class="font-semibold text-green-700 tracking-wide">Progress: 70%</p>
+              </div>
+              <button onclick="goToCourse('web-dev')" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-7 py-3 rounded-full shadow-md focus:outline-none focus:ring-4 focus:ring-green-400 transition">
+                View Content
+              </button>
+            </article>
+
+            <article class="group flex flex-col md:flex-row items-start md:items-center justify-between border border-green-200 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 relative">
+              <div class="flex-1 mb-6 md:mb-0">
+                <h3 class="text-2xl font-extrabold text-green-800 mb-4 group-hover:text-green-600 transition">Python Programming</h3>
+                <div class="relative w-full bg-green-100 rounded-full h-6 mb-4 overflow-hidden shadow-inner">
+                  <div class="absolute top-0 left-0 h-6 bg-gradient-to-r from-green-600 via-green-500 to-green-400 rounded-full transition-all duration-700 ease-in-out" style="width: 40%;"></div>
+                </div>
+                <p class="font-semibold text-green-700 tracking-wide">Progress: 40%</p>
+              </div>
+              <button onclick="goToCourse('python')" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-7 py-3 rounded-full shadow-md focus:outline-none focus:ring-4 focus:ring-green-400 transition">
+                View Content
+              </button>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- Sidebar Panel -->
+        <aside class="space-y-12">
+          <section class="bg-white rounded-3xl shadow-2xl p-8 border border-green-100">
+            <h2 class="text-3xl font-extrabold text-green-900 mb-6 border-b-4 border-green-300 pb-3 tracking-wide">Wishlist</h2>
+            <div class="space-y-6">
+              <div class="flex justify-between items-center border border-green-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+                <span class="font-semibold text-gray-900 text-lg">UI/UX Design</span>
+                <button class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-full shadow-md focus:outline-none focus:ring-4 focus:ring-green-400 transition">
+                  Enroll
+                </button>
+              </div>
+              <div class="flex justify-between items-center border border-green-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+                <span class="font-semibold text-gray-900 text-lg">Machine Learning</span>
+                <button class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-full shadow-md focus:outline-none focus:ring-4 focus:ring-green-400 transition">
+                  Enroll
+                </button>
+              </div>
+            </div>
+          </section>
+        </aside>
+
+      </main>
+
+    </div>
+  </div>
+
   <script>
+    document.getElementById('studentName').textContent = 'Chris';
 
-    const studentName = "Junaid";
-    document.getElementById("studentName").textContent = studentName;
-
+    function goToCourse(courseId) {
+      localStorage.setItem('selectedCourse', courseId);
+      window.location.href = 'courses.html';
+    }
   </script>
 </body>
 </html>

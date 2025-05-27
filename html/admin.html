@@ -7,49 +7,48 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../src/output.css">
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col items-center p-6 font-sans">
+<body class="bg-green-50 min-h-screen flex flex-col items-center p-6 font-sans">
 
   <header class="w-full max-w-7xl mb-8">
-    <h1 class="text-3xl font-extrabold text-gray-900 border-b border-gray-300 pb-4">Admin Dashboard</h1>
+    <h1 class="text-3xl font-extrabold text-green-900 border-b border-green-300 pb-4">Admin Dashboard</h1>
   </header>
 
   <main class="w-full max-w-7xl space-y-12">
 
-
     <!-- Courses Section -->
     <section class="bg-white rounded-lg shadow p-6">
-      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Courses</h2>
-      <table class="min-w-full table-auto border-collapse border border-gray-300">
+      <h2 class="text-2xl font-semibold text-green-800 mb-4">Courses</h2>
+      <table class="min-w-full table-auto border-collapse border border-green-300">
         <thead>
-          <tr class="bg-gray-200">
-            <th class="border border-gray-300 px-4 py-2 text-left">Title</th>
-            <th class="border border-gray-300 px-4 py-2 text-left">Teacher</th>
-            <th class="border border-gray-300 px-4 py-2 text-left">Status</th>
-            <th class="border border-gray-300 px-4 py-2 text-left">Actions</th>
+          <tr class="bg-green-200">
+            <th class="border border-green-300 px-4 py-2 text-left">Title</th>
+            <th class="border border-green-300 px-4 py-2 text-left">Teacher</th>
+            <th class="border border-green-300 px-4 py-2 text-left">Status</th>
+            <th class="border border-green-300 px-4 py-2 text-left">Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="hover:bg-gray-50">
-            <td class="border border-gray-300 px-4 py-2">Introduction to HTML</td>
-            <td class="border border-gray-300 px-4 py-2">Dr Zahid</td>
-            <td class="border border-gray-300 px-4 py-2 text-green-600 font-semibold">Approved</td>
-            <td class="border border-gray-300 px-4 py-2 space-x-2">
-              <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</button>
+          <tr class="hover:bg-green-50">
+            <td class="border border-green-300 px-4 py-2">Introduction to HTML</td>
+            <td class="border border-green-300 px-4 py-2">Dr Zahid</td>
+            <td class="border border-green-300 px-4 py-2 text-green-700 font-semibold">Approved</td>
+            <td class="border border-green-300 px-4 py-2 space-x-2">
+              <button class="bg-red-600 text-white px-2 py-1 rounded hover:bg-red-700">Delete</button>
               <button class="bg-yellow-400 text-black px-2 py-1 rounded hover:bg-yellow-500">Edit</button>
             </td>
           </tr>
-          <tr class="hover:bg-gray-50">
-            <td class="border border-gray-300 px-4 py-2">Advanced CSS</td>
-            <td class="border border-gray-300 px-4 py-2">Dr Hamid</td>
-            <td class="border border-gray-300 px-4 py-2 text-orange-600 font-semibold">Pending Approval</td>
-            <td class="border border-gray-300 px-4 py-2 space-x-2">
+          <tr class="hover:bg-green-50">
+            <td class="border border-green-300 px-4 py-2">Advanced CSS</td>
+            <td class="border border-green-300 px-4 py-2">Dr Hamid</td>
+            <td class="border border-green-300 px-4 py-2 text-green-500 font-semibold">Pending Approval</td>
+            <td class="border border-green-300 px-4 py-2 space-x-2">
               <button
-                class="bg-green-600 text-white px-2 py-1 rounded hover:bg-green-700"
+                class="bg-green-700 text-white px-2 py-1 rounded hover:bg-green-800"
                 onclick="approveCourse(this)"
               >
                 Approve
               </button>
-              <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</button>
+              <button class="bg-red-600 text-white px-2 py-1 rounded hover:bg-red-700">Delete</button>
               <button class="bg-yellow-400 text-black px-2 py-1 rounded hover:bg-yellow-500">Edit</button>
             </td>
           </tr>
@@ -59,50 +58,50 @@
 
     <!-- Teachers Section -->
     <section class="bg-white rounded-lg shadow p-6">
-      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Teachers</h2>
-      <ul class="divide-y divide-gray-200">
+      <h2 class="text-2xl font-semibold text-green-800 mb-4">Teachers</h2>
+      <ul class="divide-y divide-green-200">
         <li class="py-3 flex justify-between items-center">
           <button
-            class="text-indigo-600 hover:underline font-medium"
+            class="text-green-700 hover:underline font-medium"
             onclick="showProfile('teacher', 'Dr Zahid', 'Zahid@example.com', 'Expert in Web Development, 5 years experience.')"
           >
             Dr Zahid
           </button>
-          <span class="text-gray-500 text-sm">Zahid@example.com</span>
+          <span class="text-green-500 text-sm">Zahid@example.com</span>
         </li>
         <li class="py-3 flex justify-between items-center">
           <button
-            class="text-indigo-600 hover:underline font-medium"
+            class="text-green-700 hover:underline font-medium"
             onclick="showProfile('teacher', 'Dr Hamid', 'Hamid@example.com', 'Specialist in Python and Data Science.')"
           >
             Dr Hamid
           </button>
-          <span class="text-gray-500 text-sm">Hamid@example.com</span>
+          <span class="text-green-500 text-sm">Hamid@example.com</span>
         </li>
       </ul>
     </section>
 
     <!-- Students Section -->
     <section class="bg-white rounded-lg shadow p-6">
-      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Students</h2>
-      <ul class="divide-y divide-gray-200">
+      <h2 class="text-2xl font-semibold text-green-800 mb-4">Students</h2>
+      <ul class="divide-y divide-green-200">
         <li class="py-3 flex justify-between items-center">
           <button
-            class="text-indigo-600 hover:underline font-medium"
+            class="text-green-700 hover:underline font-medium"
             onclick="showProfile('student', 'Safwan', 'Safwan@example.com', 'Enrolled Courses: HTML, CSS. Active learner.')"
           >
             Safwan
           </button>
-          <span class="text-gray-500 text-sm">Enrolled: HTML, CSS</span>
+          <span class="text-green-500 text-sm">Enrolled: HTML, CSS</span>
         </li>
         <li class="py-3 flex justify-between items-center">
           <button
-            class="text-indigo-600 hover:underline font-medium"
+            class="text-green-700 hover:underline font-medium"
             onclick="showProfile('student', 'Junaid', 'Junaid@example.com', 'Enrolled Courses: JavaScript. Keen on frontend development.')"
           >
             Junaid
           </button>
-          <span class="text-gray-500 text-sm">Enrolled: JavaScript</span>
+          <span class="text-green-500 text-sm">Enrolled: JavaScript</span>
         </li>
       </ul>
     </section>
@@ -122,15 +121,15 @@
     >
       <button
         onclick="closeProfileModal()"
-        class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-xl font-bold"
+        class="absolute top-3 right-3 text-green-600 hover:text-green-900 text-xl font-bold"
         aria-label="Close profile modal"
       >
         &times;
       </button>
       <h3 id="profileTitle" class="text-xl font-semibold mb-2"></h3>
-      <p class="text-gray-700 mb-1"><strong>Email:</strong> <span id="profileEmail"></span></p>
-      <p class="text-gray-700"><strong>About:</strong></p>
-      <p id="profileAbout" class="text-gray-600 mt-1"></p>
+      <p class="text-green-700 mb-1"><strong>Email:</strong> <span id="profileEmail"></span></p>
+      <p class="text-green-700"><strong>About:</strong></p>
+      <p id="profileAbout" class="text-green-600 mt-1"></p>
     </div>
   </div>
 
@@ -150,8 +149,8 @@
     function approveCourse(button) {
       const statusCell = button.parentElement.previousElementSibling;
       statusCell.textContent = "Approved";
-      statusCell.classList.remove("text-orange-600");
-      statusCell.classList.add("text-green-600");
+      statusCell.classList.remove("text-green-500");
+      statusCell.classList.add("text-green-700");
       button.remove(); // Remove the approve button after approving
       alert("Course approved!");
     }
