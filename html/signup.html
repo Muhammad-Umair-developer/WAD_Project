@@ -21,215 +21,110 @@
       <!-- Form -->
       <form class="p-10 space-y-8" id="admissionForm">
 
-        <!-- Role Selector with floating label -->
-        <div class="relative">
-          <select
-            id="role"
-            name="role"
-            required
-            class="peer block w-full appearance-none bg-transparent border-2 border-green-300 rounded-2xl px-14 pt-6 pb-2 text-green-800 font-semibold
-                   focus:outline-none focus:border-green-600 focus:bg-white focus:shadow-md transition"
-          >
-            <option value="" disabled selected hidden> </option>
-            <option value="student">Student</option>
-            <option value="teacher">Teacher</option>
-          </select>
-          <label
-            for="role"
-            class="absolute left-14 top-6 text-green-400 font-semibold pointer-events-none
-                   peer-placeholder-shown:top-6 peer-placeholder-shown:left-14 peer-placeholder-shown:text-green-400 peer-placeholder-shown:scale-100
-                   peer-focus:top-1 peer-focus:left-14 peer-focus:text-green-700 peer-focus:scale-75
-                   transform origin-left transition-all duration-300"
-          >
-            Are you a student or teacher?
-          </label>
+       <!-- Role Selector -->
+<div>
+  <label for="role" class="block mb-1 text-green-700 font-semibold">Are you a student or teacher?</label>
+  <select
+    id="role"
+    name="role"
+    required
+    class="block w-full appearance-none bg-white border-2 border-green-300 rounded-2xl px-4 py-3 text-green-800 font-semibold
+           focus:outline-none focus:border-green-600 focus:shadow-md transition"
+  >
+    <option value="" disabled selected hidden>Select your role</option>
+    <option value="student">Student</option>
+    <option value="teacher">Teacher</option>
+  </select>
+</div>
 
-          <!-- Icon -->
-          <svg
-            class="absolute left-4 top-6 w-6 h-6 text-green-500 pointer-events-none"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A7.963 7.963 0 0112 15c1.657 0 3.174.507 4.414 1.37m-5.293-5.293a3 3 0 104.242-4.242 3 3 0 00-4.242 4.242z" />
-          </svg>
-        </div>
+<!-- Name Fields -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-        <!-- Name Fields -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <!-- First Name -->
+  <div>
+    <label for="firstName" class="block mb-1 text-green-700 font-semibold">First Name</label>
+    <input
+      type="text"
+      id="firstName"
+      name="firstName"
+      required
+      placeholder="Enter your first name"
+      class="block w-full bg-white border-2 border-green-300 rounded-2xl px-4 py-3 text-green-800 font-semibold
+             focus:outline-none focus:border-green-600 focus:shadow-md transition"
+    />
+  </div>
 
-          <!-- First Name -->
-          <div class="relative">
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              required
-              placeholder=" "
-              class="peer block w-full appearance-none bg-transparent border-2 border-green-300 rounded-2xl px-14 pt-6 pb-2 text-green-800 font-semibold
-                     focus:outline-none focus:border-green-600 focus:bg-white focus:shadow-md transition"
-            />
-            <label
-              for="firstName"
-              class="absolute left-14 top-6 text-green-400 font-semibold pointer-events-none
-                     peer-placeholder-shown:top-6 peer-placeholder-shown:left-14 peer-placeholder-shown:text-green-400 peer-placeholder-shown:scale-100
-                     peer-focus:top-1 peer-focus:left-14 peer-focus:text-green-700 peer-focus:scale-75
-                     transform origin-left transition-all duration-300"
-            >
-              First Name
-            </label>
-            <svg
-              class="absolute left-4 top-6 w-6 h-6 text-green-500 pointer-events-none"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A7.963 7.963 0 0112 15c1.657 0 3.174.507 4.414 1.37m-5.293-5.293a3 3 0 104.242-4.242 3 3 0 00-4.242 4.242z" />
-            </svg>
-          </div>
+  <!-- Last Name -->
+  <div>
+    <label for="lastName" class="block mb-1 text-green-700 font-semibold">Last Name</label>
+    <input
+      type="text"
+      id="lastName"
+      name="lastName"
+      required
+      placeholder="Enter your last name"
+      class="block w-full bg-white border-2 border-green-300 rounded-2xl px-4 py-3 text-green-800 font-semibold
+             focus:outline-none focus:border-green-600 focus:shadow-md transition"
+    />
+  </div>
+</div>
 
-          <!-- Last Name -->
-          <div class="relative">
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              required
-              placeholder=" "
-              class="peer block w-full appearance-none bg-transparent border-2 border-green-300 rounded-2xl px-14 pt-6 pb-2 text-green-800 font-semibold
-                     focus:outline-none focus:border-green-600 focus:bg-white focus:shadow-md transition"
-            />
-            <label
-              for="lastName"
-              class="absolute left-14 top-6 text-green-400 font-semibold pointer-events-none
-                     peer-placeholder-shown:top-6 peer-placeholder-shown:left-14 peer-placeholder-shown:text-green-400 peer-placeholder-shown:scale-100
-                     peer-focus:top-1 peer-focus:left-14 peer-focus:text-green-700 peer-focus:scale-75
-                     transform origin-left transition-all duration-300"
-            >
-              Last Name
-            </label>
-            <svg
-              class="absolute left-4 top-6 w-6 h-6 text-green-500 pointer-events-none"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A7.963 7.963 0 0112 15c1.657 0 3.174.507 4.414 1.37m-5.293-5.293a3 3 0 104.242-4.242 3 3 0 00-4.242 4.242z" />
-            </svg>
-          </div>
-        </div>
+<!-- Date of Birth -->
+<div>
+  <label for="dob" class="block mb-1 text-green-700 font-semibold">Date of Birth*</label>
+  <input
+    type="date"
+    id="dob"
+    name="dob"
+    required
+    class="block w-full bg-white border-2 border-green-300 rounded-2xl px-4 py-3 text-green-800 font-semibold
+           focus:outline-none focus:border-green-600 focus:shadow-md transition"
+  />
+</div>
 
-        <div>
-          <label for="dob" class="block mb-1 text-green-700 font-semibold">Date of Birth*</label>
-          <div class="relative">
-            <input
-              type="date"
-              id="dob"
-              name="dob"
-              required
-              class="block w-full appearance-none bg-transparent border-2 border-green-300 rounded-2xl
-                     py-2 pl-10 pr-4 text-green-800 font-semibold
-                     focus:outline-none focus:border-green-600 focus:bg-white focus:shadow-md transition"
-            />
-            <svg
-              class="absolute left-3 top-2.5 w-6 h-6 text-green-500 pointer-events-none"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2v-5H3v5a2 2 0 002 2z" />
-            </svg>
-          </div>
-        </div>
-        
+<!-- Email -->
+<div>
+  <label for="email" class="block mb-1 text-green-700 font-semibold">Email Address</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    required
+    placeholder="you@example.com"
+    class="block w-full bg-white border-2 border-green-300 rounded-2xl px-4 py-3 text-green-800 font-semibold
+           focus:outline-none focus:border-green-600 focus:shadow-md transition"
+  />
+</div>
 
-        <!-- Email -->
-        <div class="relative">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder=" "
-            class="peer block w-full appearance-none bg-transparent border-2 border-green-300 rounded-2xl px-14 pt-6 pb-2 text-green-800 font-semibold
-                   focus:outline-none focus:border-green-600 focus:bg-white focus:shadow-md transition"
-          />
-          <label
-            for="email"
-            class="absolute left-14 top-6 text-green-400 font-semibold pointer-events-none
-                   peer-placeholder-shown:top-6 peer-placeholder-shown:left-14 peer-placeholder-shown:text-green-400 peer-placeholder-shown:scale-100
-                   peer-focus:top-1 peer-focus:left-14 peer-focus:text-green-700 peer-focus:scale-75
-                   transform origin-left transition-all duration-300"
-          >
-            Email Address
-          </label>
-          <svg
-            class="absolute left-4 top-6 w-6 h-6 text-green-500 pointer-events-none"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8-4H8m8 8H8m-6 4h16a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-        </div>
+<!-- Password -->
+<div>
+  <label for="password" class="block mb-1 text-green-700 font-semibold">Create Password</label>
+  <input
+    type="password"
+    id="password"
+    name="password"
+    required
+    placeholder="At least 8 characters"
+    class="block w-full bg-white border-2 border-green-300 rounded-2xl px-4 py-3 text-green-800 font-semibold
+           focus:outline-none focus:border-green-600 focus:shadow-md transition"
+  />
+  <p class="mt-2 text-green-500 text-xs font-semibold">Must be at least 8 characters</p>
+</div>
 
-        <!-- Password -->
-        <div class="relative">
-          <input
-            type="password"
-            id="password"
-            name="password"
-            required
-            placeholder=" "
-            class="peer block w-full appearance-none bg-transparent border-2 border-green-300 rounded-2xl px-14 pt-6 pb-2 text-green-800 font-semibold
-                   focus:outline-none focus:border-green-600 focus:bg-white focus:shadow-md transition"
-          />
-          <label
-            for="password"
-            class="absolute left-14 top-6 text-green-400 font-semibold pointer-events-none
-                   peer-placeholder-shown:top-6 peer-placeholder-shown:left-14 peer-placeholder-shown:text-green-400 peer-placeholder-shown:scale-100
-                   peer-focus:top-1 peer-focus:left-14 peer-focus:text-green-700 peer-focus:scale-75
-                   transform origin-left transition-all duration-300"
-          >
-            Create Password
-          </label>
-          <svg
-            class="absolute left-4 top-6 w-6 h-6 text-green-500 pointer-events-none"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0-1.105-.895-2-2-2s-2 .895-2 2 2 4 2 4 2-1.895 2-4z" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 11v-2a4 4 0 10-8 0v2" />
-          </svg>
-          <p class="mt-2 text-green-500 text-xs font-semibold">Must be at least 8 characters</p>
-        </div>
+<!-- Terms and Conditions -->
+<div class="flex items-center space-x-3">
+  <input
+    id="terms"
+    name="terms"
+    type="checkbox"
+    required
+    class="w-5 h-5 text-green-600 border-green-300 rounded focus:ring-green-500"
+  />
+  <label for="terms" class="text-green-700 font-semibold text-sm">
+    I agree to the <a href="#" class="underline text-green-600 hover:text-green-700">terms and conditions</a>
+  </label>
+</div>
 
-        <!-- Terms and Conditions -->
-        <div class="flex items-center space-x-3">
-          <input
-            id="terms"
-            name="terms"
-            type="checkbox"
-            required
-            class="w-5 h-5 text-green-600 border-green-300 rounded focus:ring-green-500"
-          />
-          <label for="terms" class="text-green-700 font-semibold text-sm">
-            I agree to the <a href="#" class="underline text-green-600 hover:text-green-700">terms and conditions</a>
-          </label>
-        </div>
 
         <!-- Submit Button -->
         <button

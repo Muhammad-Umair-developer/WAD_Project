@@ -19,16 +19,26 @@
             <a href="index.html" class="text-4xl font-extrabold tracking-wide text-white hover:text-gray-200 transition">
                 Brainiacs
             </a>
-            <input class="border border-gray-300 rounded-full bg-white p-2 px-4 text-black w-80 shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-300" type="text" placeholder="Search Courses to Learn" />
-            <ul class="flex flex-row gap-6 text-lg font-medium">
+            <div class="relative w-80">
+              <input
+                id="searchInput"
+                class="border border-gray-300 rounded-full bg-white p-2 px-4 text-black w-full shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-300"
+                type="text"
+                placeholder="Search Courses to Learn"
+                oninput="showSuggestions()"
+                autocomplete="off"
+              />
+              <ul id="suggestionsList" class="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg hidden"> </ul>
+            </div>
+            
+                <ul class="flex flex-row gap-6 text-lg font-medium">
                 <li><a href="index.html" class="hover:text-gray-300 transition">Home</a></li>
-                <li><a href="about.html" class="hover:text-gray-300 transition">About</a></li>
+                <li><a href="#about-us" class="nav-link hover:text-gray-300 transition">About</a></li>
                 <li><a href="login.html" class="hover:text-gray-300 transition">Login</a></li>
-                <li><a href="signup.html" class="hover:text-gray-300 transition">Sign Up</a></li>
-                <li><a href="student.html" class="hover:text-gray-300 transition">Student</a></li>
-                <li><a href="admin.html" class="hover:text-gray-300 transition">Admin</a></li>
-                <li><a href="teacher.html" class="hover:text-gray-300 transition">Teacher</a></li>
-                <li><a href="courses.html" class="hover:text-gray-300 transition">Courses</a></li>
+                <li><a href="signup.html" class="hover:text-gray-300 transition">Sign Up</a></li>                <li><a href="courses.html" class="hover:text-gray-300 transition">Courses</a></li>
+                <li class="role-link student"><a href="student.html" class="hover:text-gray-300 transition">Student</a></li>
+                <li class="role-link admin"><a href="admin.html" class="hover:text-gray-300 transition">Admin</a></li>
+                <li class="role-link teacher"><a href="teacher.html" class="hover:text-gray-300 transition">Teacher</a></li>
             </ul>
         </div>
     </header>
@@ -44,7 +54,7 @@
                     <p class="text-xl text-gray-700 mb-6">
                         Brainiacs is your go-to platform for <br /> learning new skills and advancing <br /> your career. Join us today!
                     </p>
-                    <button id="signupBtn" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full shadow-md transition duration-300">
+                    <button id="signupBtn" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full shadow-md transition duration-300  cursor-pointer">
                         Sign Up
                     </button>
                 </div>
@@ -149,7 +159,7 @@
                     
         </section>
 
-        <section class="mb-16">
+        <section  id="about-us" class=" mb-16">
           <h1 class="text-4xl mb-12 font-extrabold text-center text-gray-900">About Us</h1>
 
           <div class="max-w-3xl mx-auto flex flex-col items-center justify-center px-4">
@@ -278,15 +288,16 @@
 
   <script src="../js/app.js">
     // FAQ toggle functionality
-    document.querySelectorAll('.faq-toggle').forEach(button => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        const icon = button.querySelector('svg');
-        content.classList.toggle('hidden');
-        icon.classList.toggle('rotate-180');
-      });
+   document.querySelectorAll('.faq-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('svg');
+      content.classList.toggle('hidden');
+      icon.classList.toggle('rotate-180');
     });
-  
+  });
+   
+ 
   </script>
   
 </body>

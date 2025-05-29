@@ -50,3 +50,60 @@ document.querySelectorAll('.faq-toggle').forEach(button => {
     icon.classList.toggle('rotate-180');
   });
 });
+const courses = [
+    "Web Development",
+    "Machine Learning",
+    "Artificial Intelligence",
+    "Python Development"
+  ];
+
+  function showSuggestions() {
+    const input = document.getElementById("searchInput");
+    const list = document.getElementById("suggestionsList");
+    const search = input.value.toLowerCase();
+
+    list.innerHTML = "";
+
+    if (search === "") {
+      list.classList.add("hidden");
+      return;
+    }
+
+    const filtered = courses.filter(course => course.toLowerCase().includes(search));
+
+    if (filtered.length === 0) {
+      list.classList.add("hidden");
+      return;
+    }
+
+    filtered.forEach(course => {
+      const li = document.createElement("li");
+      li.textContent = course;
+      li.className = "px-4 py-2 hover:bg-blue-100 cursor-pointer";
+      li.onclick = () => {
+        input.value = course;
+        list.classList.add("hidden");
+      };
+      list.appendChild(li);
+    });
+
+    list.classList.remove("hidden");
+  }
+
+  document.addEventListener("click", function (event) {
+    const list = document.getElementById("suggestionsList");
+    if (!event.target.closest("#searchInput")) {
+      list.classList.add("hidden");
+    }
+  });
+  
+  const userRole = 'guest'; // Change to 'student', 'admin', or 'teacher'
+
+  // Hide all role links initially
+  document.querySelectorAll('.role-link').forEach(el => el.style.display = 'none');
+
+  // Show the role link matching userRole
+  if(['student', 'admin', 'teacher'].includes(userRole)) {
+    document.querySelector(`.role-link.${userRole}`).style.display = 'block';
+  }
+   
