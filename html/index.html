@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         .slider-image {
-            transition: opacity 0.1s ease-in-out;
+            transition: opacity 0.7s ease-in-out;
         }
     </style>
 </head>
@@ -19,7 +19,7 @@
             <a href="index.html" class="text-4xl font-extrabold tracking-wide text-white hover:text-gray-200 transition">
                 Brainiacs
             </a>
-            <div class="relative w-80">
+            <div id="searchContainer" class="relative w-80">
               <input
                 id="searchInput"
                 class="border border-gray-300 rounded-full bg-white p-2 px-4 text-black w-full shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-300"
@@ -28,7 +28,10 @@
                 oninput="showSuggestions()"
                 autocomplete="off"
               />
-              <ul id="suggestionsList" class="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg hidden"> </ul>
+              <ul
+                id="suggestionsList"
+                class="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg hidden"
+              ></ul>
             </div>
             
                 <ul class="flex flex-row gap-6 text-lg font-medium">
@@ -204,7 +207,7 @@
         </section>
 
         <!-- FAQ Section -->
-    <div class="max-w-4xl mx-auto px-4">
+    <div id="contact" class="max-w-4xl mx-auto px-4">
       <h1 class="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h1>
 
       <div class="space-y-4">
@@ -286,7 +289,7 @@
     &copy; Brainiacs, All Rights Reserved.
   </footer>
 
-  <script src="../js/app.js">
+  <script src="../js/app.js" defer>
     // FAQ toggle functionality
    document.querySelectorAll('.faq-toggle').forEach(button => {
     button.addEventListener('click', () => {
